@@ -5,7 +5,6 @@ import (
 	"github.com/mitchellh/mapstructure"
 	"github.com/spf13/viper"
 	"strings"
-	"time"
 )
 
 var (
@@ -14,9 +13,8 @@ var (
 )
 
 type Config struct {
-	HTTPServer HTTPServer `yaml:"http_server"`
-	Logger     Logger     `yaml:"logger"`
-	Tracing    Tracing    `yaml:"tracing"`
+	Logger  Logger  `yaml:"logger"`
+	Tracing Tracing `yaml:"tracing"`
 }
 
 // Tracing config struct
@@ -30,15 +28,6 @@ type Tracing struct {
 // Logger config values
 type Logger struct {
 	Level string `yaml:"level"`
-}
-
-// HTTPServer config values
-type HTTPServer struct {
-	Listen            string        `yaml:"listen"`
-	ReadTimeout       time.Duration `yaml:"read_Timeout"`
-	WriteTimeout      time.Duration `yaml:"write_timeout"`
-	ReadHeaderTimeout time.Duration `yaml:"read_header_timeout"`
-	IdleTimeout       time.Duration `yaml:"idle_timeout"`
 }
 
 func Init() *Config {
