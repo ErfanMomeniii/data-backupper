@@ -28,6 +28,7 @@ func postRun(_ *cobra.Command, _ []string) error {
 }
 
 func init() {
+	rootCmd.AddCommand(startCmd)
 }
 
 func Execute() error {
